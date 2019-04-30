@@ -38,5 +38,9 @@ public class KeyInput implements KeyListener
         {
             ship.setVelX(0);
         }
+        else if(e.getKeyCode() == KeyEvent.VK_SPACE )
+        {
+            ship.shoot();
+        }
     }
 }

@@ -7,6 +7,7 @@ public abstract class CoreObject extends Rectangle
     Color color;    // Set the color of the object.
     double velX = 0;   // Speed obj moves horizontally
     double velY = 0;   // Speed obj moves vertically
+    public boolean destroyed;
 
     /**
      * Creates the core object. All subclasses
@@ -37,5 +38,9 @@ public abstract class CoreObject extends Rectangle
     public double getVelY()
     {
         return velY;
+    }
+    public void destroy()
+    {
+        destroyed = true;
     }
 }

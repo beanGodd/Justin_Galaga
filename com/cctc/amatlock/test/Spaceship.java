@@ -40,7 +40,8 @@ public class Spaceship extends CoreObject
     }
     public void shoot()
     {
-        Laser laser = new laser(x, y, 10, 30, Color.WHITE);
-        Screen.addObject(laser);
+       Laser laser = new Laser(x, y, 5, 10, Color.WHITE);
+       Screen.addObject(laser);
+       laser.setVelY(-10);
     }
 }

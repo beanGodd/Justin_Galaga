@@ -26,6 +26,16 @@ public class Laser extends CoreObject
     {
       x += velX;
       y += velY;
+      CoreObject[] coreObjects = Screen.getCoreObjects();
+        for(int i = 0; i < Screen.getObjectCounter(); i++)
+        {
+            CoreObject object = coreObjects[i];
+
+            if( intersects(object) )
+            {
+                object.destroy();
+            }
+        }
     }
 
     @Override

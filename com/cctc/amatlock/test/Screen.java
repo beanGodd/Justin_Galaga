@@ -95,7 +95,7 @@ public class Screen extends Canvas implements Runnable
       ship.tick();
       // laser.tick();
         for(int i = 0; i < objectCounter; i++)
-        {
+            {
             coreObjects[i].tick();
         }
     }
@@ -108,15 +108,26 @@ public class Screen extends Canvas implements Runnable
        ResourceLoader.loadImages();    // loads images from files.
         ship = new Spaceship(Reference.CENTER_X, Reference.CENTER_Y + 200, 10, 15, Color.RED);
 
-        int x = 20;
+        int x = 0;
         int y = 20;
-        int alienWidth = 10;
-        for(int i = 0; i < 10; i++)
+        int alienWidth = 29;
+        for(int i = 0; i < 25; i++)
         {
             Alien alien = new Alien(x, y, alienWidth , 10, Color.orange);
             addObject(alien);
             x += alienWidth + 2;
         }
+
+        y += 25;
+         x = alienWidth + 2;
+
+        for(int i = 0; i < 19; i++)
+        {
+            Alien alien = new Alien(x, y, alienWidth , 10, Color.orange);
+            addObject(alien);
+            x += alienWidth + 2;
+        }
+
 
 
         KeyInput keyInput = new KeyInput();

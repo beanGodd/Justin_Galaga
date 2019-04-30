@@ -4,7 +4,6 @@ import java.awt.*;
 
 public class Alien extends CoreObject
 {
-
     /**
      * Creates the core object. All subclasses
      * will call this with super.
@@ -31,7 +30,10 @@ public class Alien extends CoreObject
     @Override
     public void render(Graphics g)
     {
-        g.setColor(color);
-        g.fillRect(x,y,width,height);
+        if(!destroyed )
+        {
+            g.setColor(color);
+            g.fillRect(x,y,width,height);
+        }
     }
 }
