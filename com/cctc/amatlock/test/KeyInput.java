@@ -30,6 +30,7 @@ public class KeyInput implements KeyListener
     public void keyReleased(KeyEvent e)
     {
        Spaceship ship = Screen.getInstance().ship;
+
         if(e.getKeyCode() == KeyEvent.VK_RIGHT)
         {
             ship.setVelX(0);

@@ -39,6 +39,7 @@ public abstract class CoreObject extends Rectangle
     {
         return velY;
     }
+
     public void destroy()
     {
         destroyed = true;

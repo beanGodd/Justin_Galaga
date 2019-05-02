@@ -4,7 +4,9 @@ import java.awt.*;
 
 public class Spaceship extends CoreObject
 {
-      public int score;
+      public int score = 0;
+      public Laser[] lasers = new Laser[30];
+      public int laserCounter = 0;
     /**
      * Creates the core object. All subclasses
      * will call this with super.
@@ -24,6 +26,10 @@ public class Spaceship extends CoreObject
     @Override
     public void tick()
     {
+        if(destroyed)
+        {
+            return;
+        }
         x += velX;
         int counter = 0;
         counter++;
@@ -31,17 +37,41 @@ public class Spaceship extends CoreObject
         {
             shoot();
         }
+        for(int i = 0; i < laserCounter; i++)
+        {
+            lasers[i].tick();
+
+        }
     }
     @Override
     public void render(Graphics g)
     {
-        g.setColor(color);
-        g.fillRect(x,y,width,height);
+        if(!destroyed)
+        {
+            g.setColor(color);
+            g.fillRect(x,y,width,height);
+
+            for(int i = 0; i < laserCounter; i++)
+            {
+                lasers[i].render(g);
+
+            }
+        }
+
+
     }
     public void shoot()
     {
-       Laser laser = new Laser(x, y, 5, 10, Color.WHITE);
-       Screen.addObject(laser);
+       Laser laser = new Laser(x, y, 5, 10, Color.WHITE, true );
        laser.setVelY(-10);
+
+       if(laserCounter >= lasers.length)
+       {
+
+           laserCounter = 0;
+       }
+
+       lasers[laserCounter] = laser;
+       laserCounter++;
     }
 }

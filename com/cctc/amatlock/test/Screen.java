@@ -67,7 +67,6 @@ public class Screen extends Canvas implements Runnable
         {
             coreObjects[i].render(g);
         }
-
     }
 
     public void render()
@@ -115,7 +114,7 @@ public class Screen extends Canvas implements Runnable
         {
             Alien alien = new Alien(x, y, alienWidth , 10, Color.orange);
             addObject(alien);
-            x += alienWidth + 2;
+            x += alienWidth * 2;
         }
 
         y += 25;
@@ -125,8 +124,27 @@ public class Screen extends Canvas implements Runnable
         {
             Alien alien = new Alien(x, y, alienWidth , 10, Color.orange);
             addObject(alien);
-            x += alienWidth + 2;
+            x += alienWidth * 2;
         }
+        y += 30;
+        x = alienWidth * 2;
+
+        for(int i = 0; i < 16; i++)
+        {
+            Alien alien = new Alien(x, y, alienWidth , 10, Color.orange);
+            addObject(alien);
+            x += alienWidth * 2;
+        }
+        y += 35;
+        x = alienWidth * 2;
+
+        for(int i = 0; i < 10; i++)
+        {
+            Alien alien = new Alien(x, y, alienWidth , 10, Color.orange);
+            addObject(alien);
+            x += alienWidth * 2;
+        }
+
 
 
 
