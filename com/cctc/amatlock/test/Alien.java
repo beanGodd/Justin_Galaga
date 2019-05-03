@@ -42,6 +42,16 @@ public class Alien extends CoreObject
            lasers[i].tick();
 
         }
+        if(x < 0)
+        {
+            velX *= -1;
+            y += height + 2;
+        }
+        else if(x > Reference.WIDTH)
+        {
+            velX *= -1;
+            y += height + 2;
+        }
     }
 
     @Override
