@@ -6,7 +6,8 @@ public class Alien extends CoreObject
 {
     public Laser[] lasers = new Laser[30];
     public int laserCounter = 0;
-    private int ticks = 0;
+    private static final int fireRate = 300;
+    private int ticks = Randomizer.nextInt(0, fireRate);
     /**
      * Creates the core object. All subclasses
      * will call this with super.
@@ -32,7 +33,7 @@ public class Alien extends CoreObject
         y += velY;
         ticks++;
 
-        if(ticks == 120)
+        if(ticks == fireRate)
         {
             shoot();
             ticks = 0;
