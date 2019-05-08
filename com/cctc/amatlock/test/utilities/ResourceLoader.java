@@ -20,6 +20,7 @@ public class ResourceLoader
         // any image isn't found.
         try{
             Images.background = imageLoader.loadImage("background.png");
+            Images.spaceship = imageLoader.loadImage("ship.pnp");
         } catch (IOException e)
         {
             e.printStackTrace();
