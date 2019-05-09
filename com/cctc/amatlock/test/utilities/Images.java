@@ -12,5 +12,5 @@ public class Images
     // This is the image we are loading.
     public static BufferedImage background;
     public static BufferedImage spaceship;
-
+    public static BufferedImage alien;
 }
