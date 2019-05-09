@@ -24,6 +24,14 @@ public class KeyInput implements KeyListener
         {
             ship.setVelX(2);
         }
+        else if(e.getKeyCode() == KeyEvent.VK_ENTER  )
+        {
+            ship.shoot();
+        }
+        else if(e.getKeyCode() == KeyEvent.VK_R )
+        {
+            Screen.getInstance().reset();
+        }
     }
 
     @Override
@@ -38,10 +46,6 @@ public class KeyInput implements KeyListener
         else if (e.getKeyCode() == KeyEvent.VK_LEFT)
         {
             ship.setVelX(0);
-        }
-        else if(e.getKeyCode() == KeyEvent.VK_SPACE )
-        {
-            ship.shoot();
         }
     }
 }

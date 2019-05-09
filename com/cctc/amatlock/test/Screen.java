@@ -99,61 +99,68 @@ public class Screen extends Canvas implements Runnable
         }
     }
 
+    public void reset()
+    {
+         coreObjects = new CoreObject[300];
+        objectCounter = 0;
+        ship = new Spaceship(Reference.CENTER_X, Reference.HEIGHT - 50, 32, 48, Color.RED);
+
+        int x = 0;
+        int y = 20;
+        int alienWidth = 30;
+        int alienHeight = 30;
+        for(int i = 0; i < 10; i++)
+        {
+            Alien alien = new Alien(x, y, alienWidth , alienHeight, Color.orange);
+            alien.setVelX(-3);
+            addObject(alien);
+            x += alienWidth * 2;
+        }
+
+        y += alienHeight * 2;
+        x = alienWidth + 2;
+
+        for(int i = 0; i < 10; i++)
+        {
+            Alien alien = new Alien(x, y, alienWidth ,alienHeight, Color.orange);
+            alien.setVelX(3);
+            addObject(alien);
+            x += alienWidth * 2;
+        }
+        y += alienHeight * 2;
+        x = alienWidth * 2;
+
+        for(int i = 0; i < 10; i++)
+        {
+            Alien alien = new Alien(x, y, alienWidth , alienHeight, Color.orange);
+            alien.setVelX(-3);
+            addObject(alien);
+            x += alienWidth * 2;
+        }
+        y += alienHeight * 2;
+        x = alienWidth * 2;
+
+        for(int i = 0; i < 10; i++)
+        {
+            Alien alien = new Alien(x, y, alienWidth , alienHeight, Color.orange);
+            alien.setVelX(3);
+            addObject(alien);
+            x += alienWidth * 2;
+        }
+
+    }
+
     /**
      * Does the things needed when our program starts.
      */
     public void init()
     {
        ResourceLoader.loadImages();    // loads images from files.
-        ship = new Spaceship(Reference.CENTER_X, Reference.CENTER_Y + 200, 10, 15, Color.RED);
-
-        int x = 0;
-        int y = 20;
-        int alienWidth = 29;
-        for(int i = 0; i < 10; i++)
-        {
-            Alien alien = new Alien(x, y, alienWidth , 10, Color.orange);
-            alien.setVelX(-3);
-            addObject(alien);
-            x += alienWidth * 2;
-        }
-
-        y += 25;
-         x = alienWidth + 2;
-
-        for(int i = 0; i < 10; i++)
-        {
-            Alien alien = new Alien(x, y, alienWidth , 10, Color.orange);
-            alien.setVelX(3);
-            addObject(alien);
-            x += alienWidth * 2;
-        }
-        y += 30;
-        x = alienWidth * 2;
-
-        for(int i = 0; i < 10; i++)
-        {
-            Alien alien = new Alien(x, y, alienWidth , 10, Color.orange);
-            alien.setVelX(-3);
-            addObject(alien);
-            x += alienWidth * 2;
-        }
-        y += 35;
-        x = alienWidth * 2;
-
-        for(int i = 0; i < 10; i++)
-        {
-            Alien alien = new Alien(x, y, alienWidth , 10, Color.orange);
-            alien.setVelX(3);
-            addObject(alien);
-            x += alienWidth * 2;
-        }
-
-
-
 
         KeyInput keyInput = new KeyInput();
         this.addKeyListener(keyInput);
+
+        reset();
     }
 
     @Override

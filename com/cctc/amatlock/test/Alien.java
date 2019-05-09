@@ -1,5 +1,7 @@
 package com.cctc.amatlock.test;
 
+import com.cctc.amatlock.test.utilities.Images;
+
 import java.awt.*;
 
 public class Alien extends CoreObject
@@ -7,7 +9,7 @@ public class Alien extends CoreObject
     public Laser[] lasers = new Laser[30];
     public int laserCounter = 0;
     private static final int fireRate = 300;
-    private int ticks = Randomizer.nextInt(0, fireRate);
+    private int ticks = Randomizer.nextInt(-fireRate/2, fireRate/2);
     /**
      * Creates the core object. All subclasses
      * will call this with super.
@@ -29,6 +31,10 @@ public class Alien extends CoreObject
     @Override
     public void tick()
     {
+        if(destroyed)
+        {
+            return;
+        }
         x += velX;
         y += velY;
         ticks++;
@@ -61,7 +67,8 @@ public class Alien extends CoreObject
         if(!destroyed )
         {
             g.setColor(color);
-            g.fillRect(x,y,width,height);
+//            g.fillRect(x,y,width,height);
+            g.drawImage(Images.alien, x, y, width, height, null);
             for(int i = 0; i < laserCounter; i++)
             {
                 lasers[i].render(g);
@@ -71,7 +78,7 @@ public class Alien extends CoreObject
     }
     public void shoot()
     {
-        Laser laser = new Laser(x, y, 5, 10, Color.WHITE, false);
+        Laser laser = new Laser(x, y, 5, 10, Color.RED, false);
         laser.setVelY(10);
 
         if(laserCounter >= lasers.length)

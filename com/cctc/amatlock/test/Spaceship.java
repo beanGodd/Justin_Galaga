@@ -9,6 +9,7 @@ public class Spaceship extends CoreObject
       public int score = 0;
       public Laser[] lasers = new Laser[30];
       public int laserCounter = 0;
+      private Color laserColor = new Color(255, 0, 137);
     /**
      * Creates the core object. All subclasses
      * will call this with super.
@@ -52,7 +53,7 @@ public class Spaceship extends CoreObject
         {
             g.setColor(color);
             //g.fillRect(x,y,width,height);
-            g.drawImage(Images.spaceship, x, y, width, height, null);
+           g.drawImage(Images.spaceship, x - 4, y, width+8, height, null);
 
             for(int i = 0; i < laserCounter; i++)
             {
@@ -65,7 +66,7 @@ public class Spaceship extends CoreObject
     }
     public void shoot()
     {
-       Laser laser = new Laser(x, y, 5, 10, Color.WHITE, true );
+       Laser laser = new Laser(x, y, 5, 10, laserColor, true );
        laser.setVelY(-10);
 
        if(laserCounter >= lasers.length)
