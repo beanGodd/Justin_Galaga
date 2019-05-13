@@ -56,6 +56,14 @@ public class Laser extends CoreObject
       }
       else
       {
+          if(ship.x > x && Screen.getInstance().difficulty > 1)
+          {
+              velX += 0.5;
+          }
+          else if ( Screen.getInstance().difficulty > 1)
+          {
+              velX -= 0.5;
+          }
           if(intersects(ship))
           {
               ship.destroy();

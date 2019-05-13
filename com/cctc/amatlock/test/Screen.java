@@ -21,8 +21,8 @@ public class Screen extends Canvas implements Runnable
     private Thread thread;  // Don't worry about what this is.
 
     public Spaceship ship;
-
     public Laser laser;
+    public int difficulty = 1;
 
     public static Screen getInstance()
     {
@@ -103,12 +103,12 @@ public class Screen extends Canvas implements Runnable
     {
          coreObjects = new CoreObject[300];
         objectCounter = 0;
-        ship = new Spaceship(Reference.CENTER_X, Reference.HEIGHT - 50, 32, 48, Color.RED);
+        ship = new Spaceship(Reference.CENTER_X, Reference.HEIGHT - 70, 32, 74, Color.RED);
 
         int x = 0;
         int y = 20;
-        int alienWidth = 30;
-        int alienHeight = 30;
+        int alienWidth = 32;
+        int alienHeight = 32;
         for(int i = 0; i < 10; i++)
         {
             Alien alien = new Alien(x, y, alienWidth , alienHeight, Color.orange);

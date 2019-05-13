@@ -18,19 +18,23 @@ public class KeyInput implements KeyListener
 
         if(e.getKeyCode() == KeyEvent.VK_LEFT)
         {
-            ship.setVelX(-2);
+            ship.setVelX(-4);
         }
         else if (e.getKeyCode() == KeyEvent.VK_RIGHT)
         {
-            ship.setVelX(2);
+            ship.setVelX(4);
         }
-        else if(e.getKeyCode() == KeyEvent.VK_ENTER  )
+        else if(e.getKeyCode() == KeyEvent.VK_SPACE )
         {
             ship.shoot();
         }
         else if(e.getKeyCode() == KeyEvent.VK_R )
         {
             Screen.getInstance().reset();
+        }
+        else if(e.getKeyCode() == KeyEvent.VK_S)
+        {
+            Screen.getInstance().difficulty++;
         }
     }
 
