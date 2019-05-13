@@ -22,7 +22,7 @@ public class ResourceLoader
             Images.background = imageLoader.loadImage("background.png");
             Images.alien = imageLoader.loadImage("jiren.png");
             Images.spaceship = imageLoader.loadImage("rose.png");
-        } catch (IOException e)
+        } catch (Exception e)
         {
             e.printStackTrace();
         }
